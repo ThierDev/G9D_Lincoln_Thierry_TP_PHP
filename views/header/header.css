@@ -1,0 +1,26 @@
+header{
+
+	
+}
+.logo_isep{text-align: center;}
+
+#logo img {
+	
+	width: 11%;
+    height: 10%;
+	margin-right: auto;
+	margin-right: auto;
+}
+#navigation ul{
+	display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+	
+	
+	
+	
+}
+#navigation ul li {
+	padding-left: 10px;
+	padding-right: 10px;
+}
