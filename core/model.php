@@ -100,7 +100,7 @@ class Model
             $order = $data["order"];
         }
         $sql = "SELECT $fields FROM ".$this->table." WHERE $condition ORDER BY $order $limit";
-        print($sql);
+        
         $req=mysqli_query($GLOBALS['db'],$sql) or die(mysqli_error($GLOBALS['db']) . "<br/> =>" . mysqli_query($GLOBALS['db'],$sql)); // on revoie aussi la query qui a été faite pour débugger si besoin
         $d = array();
         while ($data = mysqli_fetch_array($req)) {

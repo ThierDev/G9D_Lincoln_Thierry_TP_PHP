@@ -6,7 +6,7 @@
 		
 		<nav id="navigation">
 			<ul>
-				<li><a href="index.php?p=TPphp">Acceuil</a></li>
+				<li><a href="index.php?p=login">Acceuil</a></li>
 				<li><a href="index.php?p=actualite">Actualités</a></li>
 				<li><a href="">Ajouter un sujet</a></li>
 				<li><a href="">Contact</a></li>

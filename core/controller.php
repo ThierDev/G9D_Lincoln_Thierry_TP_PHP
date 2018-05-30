@@ -5,7 +5,7 @@ class Controller
 
     public $vars_set = array();
     public $layout = 'default';
-    public $error = NULL;
+    public $error = array();
 
     public function set($d)
     {
@@ -15,12 +15,14 @@ class Controller
     }
     public function set_error($Error){
         $this->error = $Error;
-        echo $this->error;
+        
+        
     }
 
     public function render($filename)
     {
         extract($this->vars_set);
+        extract($this->error);
 
         ob_start();
         require ROOT . 'views/' . get_class($this) . '/' . $filename . '.php'; // ceci est pour aoir la bonne vue get_class récupère le nom de la class courante
@@ -45,9 +47,8 @@ class Controller
     }
     public function validateEmail($email){
 
-        if(filter_var($email,FILTER_VALIDATE_EMAIL==true)){
+        if(filter_var(strtolower($email),FILTER_VALIDATE_EMAIL)==true){
             return null;
-
         }
         else{return "InvalidEmail";}
 

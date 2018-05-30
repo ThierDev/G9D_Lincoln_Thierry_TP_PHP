@@ -1,0 +1,31 @@
+body {
+	font-family: serif;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.bold {
+	font-weight: bolder;
+}
+
+
+h1 {
+	color: #00629f;
+}
+
+h2 {
+	color: #00629f;
+}
+
+.blocs{
+	
+	display:grid;
+	
+	grid-template-rows:50%;
+	grid-template-columns:45% 25% 30%;
+	
+	margin:10%;
+	
+}
