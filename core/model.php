@@ -79,6 +79,38 @@ class Model
         }
         */
     }
+    
+    function find_join($data = array())
+    {
+        $condition = "1=1";
+        $fields = "*";
+        $limit = "";
+        $order = "id DESC"; // DESC par défault, ASC si on veut modifier.
+        
+        if (isset($data["condition"])) {
+            $condition = $data["condition"];
+        }
+        if (isset($data["fields"])) {
+            $fields = $data["fields"];
+        }
+        if (isset($data["limit"])) {
+            $limit = $data["limit"];
+        }
+        if (isset($data["order"])) {
+            $order = $data["order"];
+        }
+        //$sql = "SELECT DISTINCT $fields FROM ".$this->table." ON $condition ORDER BY $order $limit";
+        $sql="SELECT * FROM (SELECT DISTINCT sujet.id AS ID,id_posteur AS id_posteur, sujet.date AS date, contenu_msg AS contenu_msg,category AS category, reponse.date_rep AS date_rep, contenu_rep AS contenu_rep, Personne.nom as nom FROM sujet LEFT JOIN reponse ON reponse.id_sujet = sujet.id JOIN Personne ON sujet.id_posteur=Personne.id ORDER BY reponse.date_rep DESC) AS subquery GROUP BY contenu_msg ORDER BY subquery.`date_rep` DESC";
+        $req=mysqli_query($GLOBALS['db'],$sql) or die(mysqli_error($GLOBALS['db']) . "<br/> =>" . mysqli_query($GLOBALS['db'],$sql)); // on revoie aussi la query qui a été faite pour débugger si besoin
+        
+        
+        
+        $d = array();
+        while ($data = mysqli_fetch_array($req,MYSQLI_ASSOC)) {
+            $d[] = $data;
+        }
+        return $d;
+    }
 
     function find($data = array())
     {

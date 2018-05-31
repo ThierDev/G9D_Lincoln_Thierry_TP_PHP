@@ -32,10 +32,6 @@ class TPphp extends Controller
             $error=$this->validateEmail($email);
             $this->set_error($error);
             $this->index();
-            
-            
-
-
         }
         else{
 
@@ -44,8 +40,7 @@ class TPphp extends Controller
     }
     public function filter(){
         $this->loadModel('filter');
-        $a=$_POST;
-        print_r($a);
+        $a=$_POST;       
         $d['d']=$this->filter->filtre($a);
         $this->set($d);
         $this->render('home');

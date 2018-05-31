@@ -1,14 +1,29 @@
 <?php
 
-class TPphp extends Controller
+class Actualite extends Controller
 {
-    public function index()
-    {
+    
+    public function __construct(){
+        
+        Session::init();
+        $logged=Session::get("loggedIn");
+        if($logged==false){
+            Session::destroy();
+            header("login");
+            exit;
+        }
+    }
+    
+    public function index(){
 
         $this->loadModel('sujet');
         
+        $fixed['fixed'] = $this->sujet->get_sujet();
+        $this->set_fixed($fixed);
         $d['d'] = $this->sujet->get_sujet();
         $this->set($d);
+        print_r($d);
+        
         $this->render('home');
     }
 
@@ -42,11 +57,13 @@ class TPphp extends Controller
         }
         
     }
+    
     public function filter(){
         $this->loadModel('filter');
         $a=$_POST;
-        print_r($a);
-        $d['d']=$this->filter->filtre($a);
+        
+        $d['d']=$this->filter->exefiltre($a);
+       
         $this->set($d);
         $this->render('home');
         

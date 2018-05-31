@@ -6,10 +6,18 @@
 		
 		<nav id="navigation">
 			<ul>
-				<li><a href="index.php?p=login">Acceuil</a></li>
-				<li><a href="index.php?p=actualite">Actualités</a></li>
-				<li><a href="">Ajouter un sujet</a></li>
-				<li><a href="">Contact</a></li>
+				
+				
+				
+				<?php 
+				Session::init();
+				
+				if(Session::get("loggedIn")){ ?>
+    				<li><a href="actualite">Actualités</a></li>
+    				<li><a href="poster">Ajouter un sujet</a></li>
+    				
+				    <li><a href="<?php echo WEBROOT; ?>acceuil">Deconnexion</a></li>
+				<?php } ?>
 			</ul>
 		</nav>
 		

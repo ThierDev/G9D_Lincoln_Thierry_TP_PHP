@@ -3,7 +3,6 @@
 class Login extends Model{
     
     var $table =' Personne ';
-    
     public function exelogin($d){
         
         Session::init();
@@ -11,7 +10,7 @@ class Login extends Model{
         $r=$this->find(array(
             
            "condition" => "email='$email'",
-           "fields"=>"id,mdp"
+           "fields"=>"id,mdp,nom"
             
         ));
         
@@ -21,6 +20,9 @@ class Login extends Model{
         if($r[0]['mdp']== sha1($d['mdp'])){
             
             Session::set('loggedIn', true);
+            Session::set('user',$r[0]['nom']);
+            Session::set('user_id',$r[0]['id']);
+            
             header('location: ../actualite');
             exit;
         

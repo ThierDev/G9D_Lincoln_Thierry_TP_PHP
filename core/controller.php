@@ -4,6 +4,7 @@ class Controller
 {
 
     public $vars_set = array();
+    public $fixed_vars_set=array();
     public $layout = 'default';
     public $error = array();
 
@@ -12,6 +13,12 @@ class Controller
         $this->vars_set = array_merge($this->vars_set, $d);
         
 
+    }
+    public function set_fixed($f)
+    {
+        $this->fixed_vars_set = array_merge($this->fixed_vars_set, $f);
+        
+        
     }
     public function set_error($Error){
         $this->error = $Error;
@@ -23,6 +30,7 @@ class Controller
     {
         extract($this->vars_set);
         extract($this->error);
+        extract($this->fixed_vars_set);
 
         ob_start();
         require ROOT . 'views/' . get_class($this) . '/' . $filename . '.php'; // ceci est pour aoir la bonne vue get_class récupère le nom de la class courante

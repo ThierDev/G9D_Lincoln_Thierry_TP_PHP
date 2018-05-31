@@ -37,7 +37,7 @@
 			<label>Votre Nom :<br> <input type="text" name="nom" class="txtbox" /></label>
 			<br> <label> Votre E-Mail:<br> <input type="text" name="email"
 				class="txtbox" /></label> <br> <label> Votre Mot de passe:</label> <br>
-			<input type="text" name="mdp" class="txtbox" /> <br> <input
+			<input type="password" type="text" name="mdp" class="txtbox" /> <br> <input
 				type="submit" value="Envoyer" class="button" />
 		</form>
 

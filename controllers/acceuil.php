@@ -3,7 +3,16 @@
 
 class Acceuil extends Controller{
     
-    
+    public function __construct(){
+        
+        Session::init();
+        $logged=Session::get("loggedIn");
+        if($logged==true){
+            Session::destroy();
+            header("Refresh:0");
+            exit;
+        }
+    }
     
     
     public function index()
@@ -62,6 +71,7 @@ class Acceuil extends Controller{
         
         
     }
+    
     
     
     

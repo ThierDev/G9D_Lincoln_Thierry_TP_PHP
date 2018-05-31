@@ -14,9 +14,11 @@ class Inscription extends Model{
         $d['mdp']=$mdp;
         //$info_to_send=array();
         //array_push($info_to_send,$nom,$email,$mdp)
-        
+        Session::set('user',$d['nom']);
         
         $this->save($d);
+        Session::set('loggedIn', true);
+        header("location: ../actualite");
 
         
     }
