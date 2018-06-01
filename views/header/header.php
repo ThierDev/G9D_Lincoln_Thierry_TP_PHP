@@ -15,7 +15,7 @@
 				if(Session::get("loggedIn")){ ?>
     				<li><a href="actualite">Actualités</a></li>
     				<li><a href="poster">Ajouter un sujet</a></li>
-    				
+    				<?php if(Session::get("admin")){?><li><a href="admin">Administration</a></li><?php } ?>
 				    <li><a href="<?php echo WEBROOT; ?>acceuil">Deconnexion</a></li>
 				<?php } ?>
 			</ul>

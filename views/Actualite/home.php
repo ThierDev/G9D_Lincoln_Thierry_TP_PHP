@@ -1,4 +1,17 @@
-<h2>Bonjour <?php echo Session::get('user')?></h2>
+<h2>Bonjour <?php 
+
+
+
+echo Session::get('user');
+if(Session::get('admin')==1){
+
+	echo ", Privilège: Admin";
+}
+
+
+
+?></h2>
+
 <section class="blocs">
 
 
@@ -46,7 +59,7 @@
 
 
 
-	<div id="bloc5" class="bloc">
+<div id="bloc5" class="bloc">
 		<h1>Filtrer</h1>
 
 

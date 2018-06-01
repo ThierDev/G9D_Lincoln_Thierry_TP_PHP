@@ -11,7 +11,7 @@ class Login extends Model{
         $r=$this->find(array(
             
            "condition" => "email='$email'",
-           "fields"=>"id,mdp,nom"
+           "fields"=>"id,mdp,nom,ptype"
             
         ));
         
@@ -22,6 +22,7 @@ class Login extends Model{
                 Session::set('loggedIn', true);
                 Session::set('user',$r[0]['nom']);
                 Session::set('user_id',$r[0]['id']);
+                if($r[0]['ptype']=='1'){Session::set('admin',$r[0]['ptype']);} // si l'utilisateur est un admin. 
                 
                 header('location: ../actualite');
                 exit;

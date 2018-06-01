@@ -1,0 +1,53 @@
+body {
+	font-family: serif;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.bold {
+	font-weight: bolder;
+}
+
+
+
+h1 {
+	color: #00629f;
+}
+
+h2 {
+	color: #00629f;
+}
+
+.button {
+	max-width: 180px;
+	padding: 6px 20px;
+	background-color: #00629f;
+	color: white;
+	border-radius: 5px;
+}
+
+
+.blocs{
+	
+	display:grid;
+	
+	grid-template-rows:50% 50% 50%;
+	grid-template-columns:50% 50%;
+	
+	margin:10%;
+	
+}
+
+.blocs rep{
+	margin-left:10%;
+	background-color:lemonchiffon;
+	color: #00629f;
+}
+
+
+
+.txtbox {
+	width: 75%;
+}

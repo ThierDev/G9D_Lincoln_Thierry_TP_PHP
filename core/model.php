@@ -146,8 +146,14 @@ class Model
     }
     
     function del($id=null) {
-        if(id==null){$id=$this.id;}
+        if($id==null){$id=$this.$id;}
         $sql="DELETE FROM".$this->table."WHERE id=$id";
+        mysqli_query($GLOBALS['db'],$sql) or die(mysqli_error($GLOBALS['db']) . "<br/> =>" . mysqli_query($GLOBALS['db'],$sql)); // on revoie aussi la query qui a été faite pour débugger si besoin
+        
+    }
+    function delrep($id=null) {
+        if($id==null){$id=$this.$id;}
+        $sql="DELETE FROM".$this->table."WHERE id_rep=$id";
         mysqli_query($GLOBALS['db'],$sql) or die(mysqli_error($GLOBALS['db']) . "<br/> =>" . mysqli_query($GLOBALS['db'],$sql)); // on revoie aussi la query qui a été faite pour débugger si besoin
         
     }
