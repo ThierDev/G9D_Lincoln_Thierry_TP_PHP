@@ -46,8 +46,9 @@ class Acceuil extends Controller{
             if($erroremail==null && isset($d['mdp'])==true){
                 
                 
-                $this->login->exelogin($d);
-                
+                $pot_error = $this->login->exelogin($d);
+                if($pot_error != null){$error['error'] = array("error"=> "$pot_error");$this->set_error($error);}
+                $this->index();
                 
             }
             else{

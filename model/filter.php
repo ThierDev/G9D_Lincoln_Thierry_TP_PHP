@@ -16,9 +16,9 @@ class Filter extends Model
         
         
         
-        return $d = $this->find(array(
-            "order" => "id DESC",
-            "condition" => $condition
+        return $d = $this->find_join(array(
+            "fields" => "sujet.id AS ID,id_posteur AS id_posteur, sujet.date AS date, contenu_msg AS contenu_msg,category AS category, reponse.date_rep AS date_rep, Personne.nom as nom_posteur",
+            "condition" => $condition,
             
         ));
     }

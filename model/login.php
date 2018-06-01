@@ -7,6 +7,7 @@ class Login extends Model{
         
         Session::init();
         $email=$d['email'];
+        
         $r=$this->find(array(
             
            "condition" => "email='$email'",
@@ -15,22 +16,28 @@ class Login extends Model{
         ));
         
         
-        
-        
-        if($r[0]['mdp']== sha1($d['mdp'])){
+        if(isset($r[0])==true){        
+            if($r[0]['mdp']== sha1($d['mdp'])){
+                
+                Session::set('loggedIn', true);
+                Session::set('user',$r[0]['nom']);
+                Session::set('user_id',$r[0]['id']);
+                
+                header('location: ../actualite');
+                exit;
             
-            Session::set('loggedIn', true);
-            Session::set('user',$r[0]['nom']);
-            Session::set('user_id',$r[0]['id']);
+            }
             
-            header('location: ../actualite');
-            exit;
-        
-        }
-        else{
+            else{
+                Session::destroy();
+                return "Mot de passe invalide";
+                
+                
+            }
+        }else{
+            Session::destroy();   
+            return "Email ou mot de passe invalide";
             
-            print("Email ou mot de passe invalide");
-            Session::destroy();
             
         }
         

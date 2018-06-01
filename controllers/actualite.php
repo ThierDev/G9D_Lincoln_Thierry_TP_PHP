@@ -21,7 +21,9 @@ class Actualite extends Controller
         $fixed['fixed'] = $this->sujet->get_sujet();
         $this->set_fixed($fixed);
         $d['d'] = $this->sujet->get_sujet();
+        $e['e']=$this->sujet->get_sujet2();
         $this->set($d);
+        $this->set2($e);
         print_r($d);
         
         $this->render('home');
@@ -61,10 +63,11 @@ class Actualite extends Controller
     public function filter(){
         $this->loadModel('filter');
         $a=$_POST;
-        
+        $this->loadModel('sujet');
         $d['d']=$this->filter->exefiltre($a);
-       
+        $e['e']=$this->sujet->get_sujet2();
         $this->set($d);
+        $this->set2($e);
         $this->render('home');
         
     }

@@ -4,6 +4,7 @@ class Controller
 {
 
     public $vars_set = array();
+    public $vars_set2 = array();
     public $fixed_vars_set=array();
     public $layout = 'default';
     public $error = array();
@@ -11,6 +12,12 @@ class Controller
     public function set($d)
     {
         $this->vars_set = array_merge($this->vars_set, $d);
+        
+
+    }
+    public function set2($d)
+    {
+        $this->vars_set2 = array_merge($this->vars_set2, $d);
         
 
     }
@@ -29,6 +36,7 @@ class Controller
     public function render($filename)
     {
         extract($this->vars_set);
+        extract($this->vars_set2);
         extract($this->error);
         extract($this->fixed_vars_set);
 
