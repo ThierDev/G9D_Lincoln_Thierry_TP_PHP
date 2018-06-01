@@ -54,6 +54,11 @@ class Admin extends Controller
             $this->supprimmer->supp_sujet($a['supp_sujet']);
 
         }
+        if(isset($a['supp_rep'])==true){
+
+            $this->supprimmer->supp_rep($a['supp_rep']);
+
+        }
 
 
        

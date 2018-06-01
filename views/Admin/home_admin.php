@@ -47,7 +47,7 @@ if(Session::get('admin')==1){
 					$date = explode(" ", $rowe['date_rep']);
 					echo $date[0];
 				?>
-				<form method='post' action="<?php echo WEBROOT;?>admin/supprimer_rep">
+				<form method='post' action="<?php echo WEBROOT;?>admin/supprimer">
 				<button type="submit" name="supp_rep" value="<?php echo $rowe['id_rep']?>" class="button">SUP Rep</button>
 				</form>
 			</p>
