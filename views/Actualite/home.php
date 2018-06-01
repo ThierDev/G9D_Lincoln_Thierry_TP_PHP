@@ -31,7 +31,7 @@
 
 	
     
-		<form action="<?php echo WEBROOT;?>poster/repondre"method="post">
+		<form action="<?php echo WEBROOT;?>poster/repondre" method="post">
 			<label>Message:</label><br> 
 			<input	type="text" name="contenu_rep" class="texbox"> <br>
 				
